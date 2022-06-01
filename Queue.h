@@ -35,12 +35,12 @@ class Queue
                 newArray[i] = m_items[i];
             }
             delete[] m_items;
-            m_items=newArray;
-            m_length+=EXPANSION;
         }
         catch (const std::bad_alloc &e) {
             throw std::bad_alloc();
         }
+        m_items = newArray;
+        m_length += EXPANSION;
     }
 
 
@@ -61,12 +61,12 @@ public:
                 newArray[i] = otherQueue.getItems()[i];
             }
             m_items=newArray;
-            m_length=otherQueue.size();
-            m_numOfItems=otherQueue.size();
         }
         catch (const std::bad_alloc &e) {
             throw std::bad_alloc();
         }
+        m_length = otherQueue.size();
+        m_numOfItems = otherQueue.size();
     }
 
 
@@ -82,12 +82,12 @@ public:
             }
             delete[] m_items;
             m_items = newArray;
-            m_length = otherQueue.size();
-            m_numOfItems = otherQueue.size();
         }
         catch (const std::bad_alloc &e) {
             throw std::bad_alloc();
         }
+        m_length = otherQueue.size();
+        m_numOfItems = otherQueue.size();
         return *this;
     }
 
